@@ -1,0 +1,25 @@
+{
+    "name": "ts-escrow-bot",
+    "version": "1.0.0",
+    "description": "Escrow bot for Telegram",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node dist/index.js"
+    },
+    "dependencies": {
+        "telegraf": "^4.16.3",
+        "express": "^4.19.2",
+        "fs-extra": "^11.2.0",
+        "dotenv": "^16.4.5",
+        "pg": "^8.11.5"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.2",
+        "@types/express": "^4.17.21",
+        "@types/fs-extra": "^11.0.4",
+        "@types/pg": "^8.11.6",
+        "typescript": "^5.4.5",
+        "ts-node": "^10.9.2"
+    }
+}
