@@ -230,14 +230,14 @@ function formatTotals(t: { inr: number; usd: number }): string {
 //   * INR amount of 300 or more  -> 3% of the amount
 //   * INR amount below 300 (<=299) -> flat ₹5
 //   * USD amount of $3 or more   -> 3% of the amount
-//   * USD amount below $3         -> flat $0.50
+//   * USD amount below $3         -> flat $0.05
 //   * FREE if BOTH the buyer and seller have "@MRIXDUFR" or "@MAXOMART" in their
 //     Telegram bio (case-insensitive: @mrixdufr / @MRIXDUFR / @maxomart / @MAXOMART).
 const FREE_FEE_BIO_TAGS = ['@mrixdufr', '@maxomart'];
 
 function calculateFee(raw: string): number {
     const { value, currency } = parseAmount(raw);
-    if (currency === 'USD') return value >= 3 ? Math.round(value * 0.03 * 100) / 100 : 0.5;
+    if (currency === 'USD') return value >= 3 ? Math.round(value * 0.03 * 100) / 100 : 0.05;
     if (value >= 300) return Math.round(value * 0.03 * 100) / 100;
     return 5;
 }
@@ -553,7 +553,7 @@ const FEES_TEXT =
     '₹300+  •  3%\n' +
     '₹299↓  •  ₹5\n\n' +
     '$3+  •  3%\n' +
-    '$3↓  •  $0.50\n' +
+    '$3↓  •  $0.05\n' +
     '━━━━━━━━━━━━━━\n\n' +
     '🆓 FREE ESCROW\n' +
     'Buyer & Seller must have\n' +
